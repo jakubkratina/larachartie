@@ -5,8 +5,8 @@ namespace JK\LaraChartie\DataTable;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
-use JK\LaraChartie\DataTable\CarbonCell;
-use JK\LaraChartie\DataTable\Cell;
+use JK\LaraChartie\DataTable\Cells\CarbonCell;
+use JK\LaraChartie\DataTable\Cells\Cell;
 
 
 

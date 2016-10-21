@@ -2,10 +2,10 @@
 
 namespace JK\LaraChartie\DataTable\Factory;
 
-use App\Charts\Exceptions\InvalidColumnTypeException;
-use App\Charts\DataTable\Column;
-use App\Charts\DataTable\Type;
-use App\Contracts\Charts\ColumnsFactory as Contract;
+use JK\LaraChartie\Contracts\ColumnsFactory as Contract;
+use JK\LaraChartie\DataTable\Column;
+use JK\LaraChartie\DataTable\Type;
+use JK\LaraChartie\Exceptions\InvalidColumnTypeException;
 
 
 

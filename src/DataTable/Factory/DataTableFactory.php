@@ -2,10 +2,10 @@
 
 namespace JK\LaraChartie\DataTable\Factory;
 
-use App\Charts\DataTable\DataTable;
-use App\Contracts\Charts\ColumnsFactory;
-use App\Contracts\Charts\DataTableFactory as Contract;
-use App\Contracts\Charts\RowsFactory;
+use JK\LaraChartie\Contracts\ColumnsFactory;
+use JK\LaraChartie\Contracts\DataTableFactory as Contract;
+use JK\LaraChartie\Contracts\RowsFactory;
+use JK\LaraChartie\DataTable\DataTable;
 
 
 

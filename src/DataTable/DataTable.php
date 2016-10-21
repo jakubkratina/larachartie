@@ -56,7 +56,7 @@ class DataTable implements Contract, Arrayable
 	 */
 	public function from($foo)
 	{
-		app($foo, [$this])->fill();
+		app($foo)->fill($this);
 
 		return $this;
 	}

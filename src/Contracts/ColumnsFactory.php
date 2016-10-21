@@ -2,8 +2,8 @@
 
 namespace JK\LaraChartie\Contracts;
 
-use App\Charts\DataTable\Column;
-use App\Charts\Exceptions\InvalidColumnTypeException;
+use JK\LaraChartie\DataTable\Column;
+use JK\LaraChartie\Exceptions\InvalidColumnTypeException;
 
 
 

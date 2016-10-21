@@ -2,8 +2,8 @@
 
 namespace JK\LaraChartie\Contracts;
 
-use App\Charts\DataTable\Row;
-use App\Charts\Exceptions\InvalidCellsCountException;
+use JK\LaraChartie\DataTable\Row;
+use JK\LaraChartie\Exceptions\InvalidCellsCountException;
 
 
 

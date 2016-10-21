@@ -2,8 +2,8 @@
 
 namespace JK\LaraChartie\Contracts;
 
-use App\Charts\DataTable\Column;
 use Illuminate\Support\Collection;
+use JK\LaraChartie\DataTable\Column;
 
 
 

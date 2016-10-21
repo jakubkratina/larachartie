@@ -1,6 +1,7 @@
 {
     "name": "jakubkratina/larachartie",
     "description": "Lightweight PHP wrapper for Google Chart javascript library for Laravel",
+    "keywords": ["laravel", "google charts", "php", "wrapper", "oop"],
 	"autoload": {
 		"psr-4": {
 			"JK\\LaraChartie\\": "src/"
@@ -27,5 +28,6 @@
             "name": "Jakub Kratina",
             "email": "me@jakubkratina.cz"
         }
-    ]
+    ],
+    "minimum-stability": "dev"
 }

@@ -2,10 +2,9 @@
 
 namespace JK\LaraChartie\DataTable;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
-use JK\LaraChartie\DataTable\Cells\CarbonCell;
+use JK\LaraChartie\Contracts\Factory\CellsFactory;
 use JK\LaraChartie\DataTable\Cells\Cell;
 
 
@@ -18,10 +17,20 @@ class Row implements Arrayable
 	 */
 	protected $cells;
 
+	/**
+	 * @var CellsFactory
+	 */
+	protected $cellsFactory;
 
 
-	public function __construct()
+
+	/**
+	 * @param CellsFactory $cellsFactory
+	 */
+	public function __construct(CellsFactory $cellsFactory)
 	{
+		$this->cellsFactory = $cellsFactory;
+
 		$this->cells = new Collection();
 	}
 
@@ -34,11 +43,7 @@ class Row implements Arrayable
 	public function addCells(array $values)
 	{
 		$this->cells = $this->cells->merge(array_map(function ($value) {
-			if ($value instanceof Carbon) {
-				return new CarbonCell($value);
-			}
-
-			return new Cell($value);
+			return $this->cellsFactory->create($value);
 		}, $values));
 
 		return $this;

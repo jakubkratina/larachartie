@@ -1,6 +1,6 @@
 <?php
 
-namespace JK\LaraChartie\Contracts;
+namespace JK\LaraChartie\Contracts\Factory;
 
 use JK\LaraChartie\DataTable\Row;
 use JK\LaraChartie\Exceptions\InvalidCellsCountException;
@@ -16,5 +16,5 @@ interface RowsFactory
 	 * @return Row
 	 * @throws InvalidCellsCountException
 	 */
-	public static function create(array $values, int $columns);
+	public function create(array $values, int $columns);
 }

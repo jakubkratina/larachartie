@@ -3,7 +3,7 @@
 namespace JK\LaraChartie\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use JK\LaraChartie\Contracts\DataTable;
+use JK\LaraChartie\Contracts\Factory\DataTable;
 
 
 

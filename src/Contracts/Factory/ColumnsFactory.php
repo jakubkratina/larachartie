@@ -1,6 +1,6 @@
 <?php
 
-namespace JK\LaraChartie\Contracts;
+namespace JK\LaraChartie\Contracts\Factory;
 
 use JK\LaraChartie\DataTable\Column;
 use JK\LaraChartie\Exceptions\InvalidColumnTypeException;

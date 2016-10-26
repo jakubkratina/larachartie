@@ -1,6 +1,6 @@
 <?php
 
-namespace JK\LaraChartie\Contracts;
+namespace JK\LaraChartie\Contracts\Factory;
 
 interface DataTableFactory
 {
@@ -10,5 +10,5 @@ interface DataTableFactory
 	 * @param ColumnsFactory $columnsFactory
 	 * @return mixed
 	 */
-	public static function create(RowsFactory $rowsFactory, ColumnsFactory $columnsFactory);
+	public function create(RowsFactory $rowsFactory, ColumnsFactory $columnsFactory);
 }

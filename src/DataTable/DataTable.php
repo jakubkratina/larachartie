@@ -4,9 +4,10 @@ namespace JK\LaraChartie\DataTable;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
-use JK\LaraChartie\Contracts\ColumnsFactory;
 use JK\LaraChartie\Contracts\DataTable as Contract;
-use JK\LaraChartie\Contracts\RowsFactory;
+use JK\LaraChartie\Contracts\Factory\ColumnsFactory;
+use JK\LaraChartie\Contracts\Factory\RowsFactory;
+use JK\LaraChartie\Contracts\Source;
 
 
 
@@ -51,12 +52,16 @@ class DataTable implements Contract, Arrayable
 
 
 	/**
-	 * @param string $foo
+	 * @param string $source
 	 * @return $this
 	 */
-	public function from($foo)
+	public function from($source)
 	{
-		app($foo)->fill($this);
+		/** @var Source $source */
+		$source = app($source);
+
+		$source->columns($this);
+		$source->fill($this);
 
 		return $this;
 	}

@@ -3,7 +3,7 @@
 namespace JK\LaraChartie\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use JK\LaraChartie\Contracts\Factory\DataTable;
+use JK\LaraChartie\DataTable\DataTable;
 
 
 
@@ -20,6 +20,6 @@ class Chart extends Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return 'chart';
+		return 'chartie';
 	}
 }

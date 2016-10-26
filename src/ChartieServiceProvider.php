@@ -27,7 +27,7 @@ class ChartieServiceProvider extends ServiceProvider
 		$this->registerRowsFactory();
 		$this->registerDataTable();
 
-		$this->app->alias(Chart::class, 'chart');
+		$this->app->alias(Chart::class, 'chartie');
 
 		$this->app->alias(\JK\LaraChartie\DataTable\Factory\DataTableFactory::class, DataTableFactory::class);
 		$this->app->alias(\JK\LaraChartie\DataTable\Factory\RowsFactory::class, RowsFactory::class);

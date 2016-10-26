@@ -55,7 +55,7 @@ class DataTable implements Contract, Arrayable
 	 * @param string $source
 	 * @return $this
 	 */
-	public function from($source)
+	public function source($source)
 	{
 		/** @var Source $source */
 		$source = app($source);

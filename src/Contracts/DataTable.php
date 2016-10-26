@@ -92,5 +92,5 @@ interface DataTable
 	 * @param string $dataTable
 	 * @return DataTable
 	 */
-	public function from($dataTable);
+	public function source($dataTable);
 }

@@ -22,9 +22,9 @@ Register LaraChartie's facade:
 
 ## Usage
 
-You can create folder for you definitios, for example `app\Charts\DataTable`.
+You can create a folder for you definitions, for example `app\Charts\DataTable`.
 
-In this folder you can put your files, which have to implemens `JK\LaraChartie\Contracts\Source` contract.
+In this folder you can put your files, which have to implements `JK\LaraChartie\Contracts\Source` contract.
 
 ```php
 <?php
@@ -74,7 +74,7 @@ class UsersSource implements JK\LaraChartie\Contracts\Source
 
 ```
 
-Then you can just call following in the your controller class:
+Then you can just have to call following in the your controller class:
 
 ```php
 
@@ -96,7 +96,7 @@ class UsersController extends Controller
 }
 ```
 
-And your output will be like:
+And your output will be like this:
 
 ```json
 {
@@ -151,7 +151,7 @@ And your output will be like:
 }
 ```
 
-And at the end of the day, you pass the data into the Google chart via ajax request:
+And at the end of the day, you just have to pass the data into the Google chart via an ajax request:
 
 ```javascript
 const users = $.ajax({
@@ -163,7 +163,7 @@ const users = $.ajax({
 		const data = new google.visualization.DataTable(users);
 ```
 
-## DataTable methods
+## DataTable's methods
 
 ```php
 interface DataTable

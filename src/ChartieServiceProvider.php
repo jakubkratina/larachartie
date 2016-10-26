@@ -37,9 +37,19 @@ class ChartieServiceProvider extends ServiceProvider
 
 
 
+	/**
+	 * @return string[]
+	 */
+	public function provides()
+	{
+		return ['chartie', \JK\LaraChartie\Chart::class];
+	}
+
+
+
 	protected function registerDataTable()
 	{
-		$this->app->bind(Chart::class, function (Application $app) {
+		$this->app->singleton(Chart::class, function (Application $app) {
 			return new \JK\LaraChartie\Chart(
 				$app, $app[DataTableFactory::class], $app[RowsFactory::class], $app[ColumnsFactory::class]
 			);
@@ -50,7 +60,7 @@ class ChartieServiceProvider extends ServiceProvider
 
 	protected function registerRowsFactory()
 	{
-		$this->app->bind(RowsFactory::class, function (Application $app) {
+		$this->app->singleton(RowsFactory::class, function (Application $app) {
 			return new \JK\LaraChartie\DataTable\Factory\RowsFactory(
 				$app[CellsFactory::class]
 			);

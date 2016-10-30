@@ -29,10 +29,10 @@ class ChartieServiceProvider extends ServiceProvider
 
 		$this->app->alias(Chart::class, 'chartie');
 
-		$this->app->alias(\JK\LaraChartie\DataTable\Factory\DataTableFactory::class, DataTableFactory::class);
-		$this->app->alias(\JK\LaraChartie\DataTable\Factory\RowsFactory::class, RowsFactory::class);
-		$this->app->alias(\JK\LaraChartie\DataTable\Factory\ColumnsFactory::class, ColumnsFactory::class);
-		$this->app->alias(\JK\LaraChartie\DataTable\Factory\CellsFactory::class, CellsFactory::class);
+		$this->app->alias(DataTable\Factory\DataTableFactory::class, DataTableFactory::class);
+		$this->app->alias(DataTable\Factory\RowsFactory::class, RowsFactory::class);
+		$this->app->alias(DataTable\Factory\ColumnsFactory::class, ColumnsFactory::class);
+		$this->app->alias(DataTable\Factory\CellsFactory::class, CellsFactory::class);
 	}
 
 
@@ -61,7 +61,7 @@ class ChartieServiceProvider extends ServiceProvider
 	protected function registerRowsFactory()
 	{
 		$this->app->singleton(RowsFactory::class, function (Application $app) {
-			return new \JK\LaraChartie\DataTable\Factory\RowsFactory(
+			return new DataTable\Factory\RowsFactory(
 				$app[CellsFactory::class]
 			);
 		});

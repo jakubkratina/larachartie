@@ -8,7 +8,7 @@ use JK\LaraChartie\DataTable\DataTable;
 
 
 /**
- * @see JK\LaraChartie\Chart
+ * @see \JK\LaraChartie\Chart
  *
  * @method static DataTable dataTable()
  */

@@ -93,4 +93,12 @@ interface DataTable
 	 * @return DataTable
 	 */
 	public function source($dataTable);
+
+
+
+	/**
+	 * @param Formatter $formatter
+	 * @return DataTable
+	 */
+	public function formatter(Formatter $formatter);
 }

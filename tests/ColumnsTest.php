@@ -1,12 +1,11 @@
 <?php
 
-namespace JK\LaraChartie\Tests\DataTable;
+namespace JK\LaraChartie\Tests;
 
 use Carbon\Carbon;
 use JK\LaraChartie\DataTable\Column;
 use JK\LaraChartie\DataTable\Type;
 use JK\LaraChartie\Facades\Chart;
-use JK\LaraChartie\Tests\TestCase;
 
 
 

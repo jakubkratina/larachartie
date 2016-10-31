@@ -7,7 +7,9 @@ use Illuminate\Support\Collection;
 use JK\LaraChartie\Contracts\DataTable as Contract;
 use JK\LaraChartie\Contracts\Factory\ColumnsFactory;
 use JK\LaraChartie\Contracts\Factory\RowsFactory;
+use JK\LaraChartie\Contracts\Formatter;
 use JK\LaraChartie\Contracts\Source;
+use JK\LaraChartie\Formatters\LineChartFormatter;
 
 
 
@@ -34,19 +36,27 @@ class DataTable implements Contract, Arrayable
 	 */
 	protected $columnsFactory;
 
+	/**
+	 * @var Formatter
+	 */
+	protected $formatter;
+
 
 
 	/**
 	 * @param RowsFactory    $rowsFactory
 	 * @param ColumnsFactory $columnsFactory
+	 * @param Formatter      $formatter |null
 	 */
-	public function __construct(RowsFactory $rowsFactory, ColumnsFactory $columnsFactory)
+	public function __construct(RowsFactory $rowsFactory, ColumnsFactory $columnsFactory, Formatter $formatter = null)
 	{
 		$this->rowsFactory = $rowsFactory;
 		$this->columnsFactory = $columnsFactory;
 
 		$this->columns = new Collection();
 		$this->rows = new Collection();
+
+		$this->formatter = $formatter ?: new LineChartFormatter; // TODO move to the config file
 	}
 
 
@@ -62,6 +72,19 @@ class DataTable implements Contract, Arrayable
 
 		$source->columns($this);
 		$source->fill($this);
+
+		return $this;
+	}
+
+
+
+	/**
+	 * @param Formatter $formatter
+	 * @return $this
+	 */
+	public function formatter(Formatter $formatter)
+	{
+		$this->formatter = $formatter;
 
 		return $this;
 	}
@@ -144,6 +167,21 @@ class DataTable implements Contract, Arrayable
 
 
 	/**
+	 * @param array $rows
+	 * @return $this
+	 */
+	public function addRows(array $rows)
+	{
+		foreach ($rows as $row) {
+			$this->addRow($row);
+		}
+
+		return $this;
+	}
+
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function columns()
@@ -168,9 +206,6 @@ class DataTable implements Contract, Arrayable
 	 */
 	public function toArray()
 	{
-		return [
-			'cols' => $this->columns->toArray(),
-			'rows' => $this->rows->toArray(),
-		];
+		return $this->formatter->format($this);
 	}
 }

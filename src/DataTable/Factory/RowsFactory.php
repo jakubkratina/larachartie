@@ -38,9 +38,10 @@ class RowsFactory implements Contract
 			$values = $values[0];
 		}
 
-		if (count($values) !== $columns) {
-			throw new InvalidCellsCountException(count($values), $columns);
-		}
+		// TODO only at LineChartFormatter
+//		if (count($values) !== $columns) {
+//			throw new InvalidCellsCountException(count($values), $columns);
+//		}
 
 		return (new Row($this->cells))->addCells($values);
 	}

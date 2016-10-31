@@ -62,6 +62,11 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
 	 */
 	protected $dataTable;
 
+	/**
+	 * @var Carbon|null
+	 */
+	protected $defaultDate;
+
 
 
 	/**
@@ -124,7 +129,7 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
 	protected function parseDate($row)
 	{
 		return array_map(function ($value) {
-			return $value === 'now' ? Carbon::now() : $value;
+			return $value === 'now' ? ($this->defaultDate ?: Carbon::now()) : $value;
 		}, $row);
 	}
 }

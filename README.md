@@ -163,6 +163,42 @@ const users = $.ajax({
 		const data = new google.visualization.DataTable(users);
 ```
 
+## Formatters
+
+As a default formatter is used `LineChartFormatter`, which provides the previous response.
+ 
+If you want to format the result, use one of the followings formatters:
+
+### PieChartFormatter
+
+```php
+	return Chart::dataTable()
+		->addStringColumn('Tasks')
+		->addNumberColumn('Hours per Day')
+		->formatter(PieChartFormatter)
+		->addRows([
+			['Work', 11],
+			['Eat', 2],
+			['Commute', 2],
+			['Watch TV', 2],
+			['Sleep', 7]
+		])
+		->toArray();
+```
+
+#### Response
+
+```
+[
+	["Tasks", "Hours per Day"],
+	["Work", 11],
+	["Eat", 2],
+	["Commute", 2],
+	["Watch TV", 2],
+	["Sleep", 7]
+]
+```
+
 ## DataTable's methods
 
 ```php

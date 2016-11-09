@@ -36,7 +36,7 @@ class CarbonCell extends Cell
 	{
 		return sprintf('Date(%s, %s, %s, %s, %s, %s)',
 			$this->value->year,
-			$this->value->month,
+			$this->value->month - 1, // because of javascript
 			$this->value->day,
 			$this->value->hour,
 			$this->value->minute,
